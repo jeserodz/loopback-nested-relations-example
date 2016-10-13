@@ -1,0 +1,28 @@
+{
+  "name": "SubTask",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "parentTaskId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "parentTask": {
+      "type": "belongsTo",
+      "model": "Task",
+      "foreignKey": "parentTaskId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

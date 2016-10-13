@@ -1,0 +1,33 @@
+{
+  "name": "Task",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "goalId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "goal": {
+      "type": "belongsTo",
+      "model": "Goal",
+      "foreignKey": "goalId"
+    },
+    "subTasks": {
+      "type": "hasMany",
+      "model": "SubTask",
+      "foreignKey": "parentTaskId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
